@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My game</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Indie+Flower" rel="stylesheet">
+
+  </head>
+  <body>
+    <button class="resetButton" data-action="reset">Reset</button>
+    <section data-state="optionScreen"class="gameScreens hidden">
+      <h2 class="gameTitle">My Game</h2>
+      <hr class="separation">
+      <form class="inputCenter">
+          <label class="phraseInput" for="x">Nombre de cases sur l'axe X : <input id="x" type="number" name="x" value="10"></label>
+
+          <label class="phraseInput" for="y">Nombre de cases sur l'axe Y : <input id="y" type="number" name="y" value="10"></label>
+
+      </form>
+      <button class="start-game" data-action="startGame">Start Game</button>
+    </section>
+    <section data-state="playScreen"class="gameScreens hidden">
+    </section>
+    <section data-state="victory" class="gameScreen hidden"><img src="./img/victoire.gif"></section>
+    <section data-state="defeat" class="gameScreen hidden"><img src="./img/defaite.gif"></section>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="./js/script.js"></script>
+</html>
