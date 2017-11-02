@@ -107,6 +107,13 @@ $(document).ready(function() {
     }
   }
 
+  function monsterGoal(posMonster){
+    if(JSON.parse(localStorage.getItem('monsterPos')).x == JSON.parse(localStorage.getItem('goalPos')).x && JSON.parse(localStorage.getItem('monsterPos')).y == JSON.parse(localStorage.getItem('goalPos')).y){
+      debugger;
+    }
+
+  }
+
   //Déplacement du Joueur.
   function movePlayer(direction) {
     var currentPlayerPos = JSON.parse(localStorage.getItem('playerPos'));
@@ -152,6 +159,7 @@ $(document).ready(function() {
         console.log('aie !');
       }
     }
+    monsterGoal();
     checkDefeat(currentPlayerPos);
     moveMonster();
     checkDefeat(currentPlayerPos);
