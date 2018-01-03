@@ -10,6 +10,14 @@ $(document).ready(function() {
       localStorage.setItem('gameState', 'defeat');
     }
   }
+
+
+    function checkVictory(currentPlayerPos){
+      if(currentPlayerPos.x == JSON.parse(localStorage.getItem('goalPos')).x && currentPlayerPos.y == JSON.parse(localStorage.getItem('goalPos')).y) {
+        displayScreen('victory');
+        localStorage.setItem('gameState', 'victory');
+      }
+    }
   //Fonction qui permet de ne pas positionner l'enemmi au même endroit que le personnage ou le goalPos.
   function checkPos(maxX, maxY) {
       var flag = false;
@@ -100,16 +108,11 @@ $(document).ready(function() {
     });
   }
 
-  function checkVictory(currentPlayerPos){
-    if(currentPlayerPos.x == JSON.parse(localStorage.getItem('goalPos')).x && currentPlayerPos.y == JSON.parse(localStorage.getItem('goalPos')).y) {
-      displayScreen('victory');
-      localStorage.setItem('gameState', 'victory');
-    }
-  }
 
   function monsterGoal(posMonster){
     if(JSON.parse(localStorage.getItem('monsterPos')).x == JSON.parse(localStorage.getItem('goalPos')).x && JSON.parse(localStorage.getItem('monsterPos')).y == JSON.parse(localStorage.getItem('goalPos')).y){
-      debugger;
+      displayScreen('defeat');
+      localStorage.setItem('gameState', 'defeat');
     }
 
   }
@@ -159,9 +162,10 @@ $(document).ready(function() {
         console.log('aie !');
       }
     }
-    monsterGoal();
+
     checkDefeat(currentPlayerPos);
     moveMonster();
+    monsterGoal();
     checkDefeat(currentPlayerPos);
 
   }
